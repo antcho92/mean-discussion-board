@@ -1,0 +1,15 @@
+<h3>{{tC.topic._user.name}} posted a topic: </h3>
+<h4>Title: {{tC.topic.title}}</h4>
+<p>Description: {{tC.topic.description}}</p>
+
+<form ng-submit='tC.createPost()'>
+  <span>Post your answer here:</span>
+  <textarea name="post" rows="3" cols="60" ng-model='tC.post.content'></textarea>
+  <input type="submit" name="name" value="Post Answer">
+</form>
+
+<div class='posts'>
+  <p ng-repeat='post in tC.topic.posts track by post._id'><a href="#">{{post._user.name}}</a>: {{post.content}}</p>
+</div>
+
+<a href="#/topics">Go Back</a>

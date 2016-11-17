@@ -4,12 +4,17 @@ app.config(function($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'partials/login.html',
-      controller: 'loginController',
-      controllerAs: 'lC'
+      controller: 'usersController',
+      controllerAs: 'uC'
     })
     .when('/topics', {
       templateUrl: 'partials/topics.html',
       controller: 'topicsController',
+      controllerAs: 'tC'
+    })
+    .when('/topic/:id', {
+      templateUrl: 'partials/topic.html',
+      controller: 'topicController',
       controllerAs: 'tC'
     })
     .otherwise('/');

@@ -10,19 +10,24 @@
   </tr>
   <tr ng-repeat='topic in tC.topics track by topic._id'>
     <td>{{topic.category}}</td>
-    <td>{{topic.title}}</td>
-    <td>{{topic._user}}</td>
+    <td><a ng-href="#/topic/{{topic._id}}">{{topic.title}}</a></td>
+    <td>{{topic._user.name}}</td>
     <td>{{topic.posts.length}}</td>
   </tr>
 </table>
-<form >
-  <input type="text" name="title" placeholder="title">
-  <textarea name="description" rows="8" cols="40"></textarea>
-  <select name="">
-    <option value="Random">Random</option>
+<h3>Add a new topic</h3>
+<form ng-submit='tC.create()'>
+  <input type="text" name="title" placeholder="title" ng-model='tC.topic.title'>
+  <br>
+  <textarea name="description" rows="8" cols="40" ng-model='tC.topic.description' placeholder="description"></textarea>
+  <br>
+  <select name="" ng-model='tC.topic.category'>
     <option value="Ruby">Ruby</option>
     <option value="JavaScript">JavaScript</option>
     <option value="Python">Python</option>
     <option value="C#">C#</option>
+    <option value="Random">Random</option>
   </select>
+  <br>
+  <input type="submit" value="Submit">
 </form>

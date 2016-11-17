@@ -1,5 +1,6 @@
 <p>Please enter a username to join and share your ideas</p>
-<form ng-submit='lC.login()'>
-  <input type="text" name="name" ng-model='lC.user.name'>
+<form ng-submit='uC.login()'>
+  <span class='errors'>{{uC.errors.name.message}}</span>
+  <input type="text" name="name" ng-model='uC.user.name'>
   <input type="submit">
 </form>

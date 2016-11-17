@@ -12,6 +12,7 @@ var topicSchema = new mongoose.Schema({
   },
   title: {
     type: String,
+    unique: [true, 'title must be unique. No reposts!'],
     required: [true, 'Topic requires a title']
   },
   description: {

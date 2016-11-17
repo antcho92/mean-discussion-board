@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var userSchema = new mongoose.Schema({
   name: {
@@ -14,7 +15,15 @@ var userSchema = new mongoose.Schema({
       },
       message: '{VALUE} is not a valid name'
     }]
-  }
+  },
+  topics: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Topic'
+  }],
+  posts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Post'
+  }]
 }, {
   timestamps: true
 })

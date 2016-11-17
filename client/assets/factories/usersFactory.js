@@ -1,10 +1,13 @@
-app.factory('loginFactory', ['$http', '$location', function($http, $location) {
-  function LoginFactory() {
+app.factory('usersFactory', ['$http', '$location', function($http, $location) {
+  function UsersFactory() {
     var self = this;
-    this.login = function(user) {
+    this.login = function(user, callback) {
       $http.post('/users', user).then(function(res) {
-        console.log(res.data);
-        $location.url('/discussion')
+        if (res.data.errors) {
+          callback(res.data.errors);
+        } else {
+          $location.url('/discussion')
+        }
       })
     };
     this.checkSess = function(callback) {
@@ -20,5 +23,5 @@ app.factory('loginFactory', ['$http', '$location', function($http, $location) {
       });
     };
   }
-  return new LoginFactory();
+  return new UsersFactory();
 }])
