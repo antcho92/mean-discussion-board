@@ -1,15 +1,16 @@
 app.controller('topicController', ['$scope', '$routeParams', 'topicFactory', function($scope, $routeParams, tF) {
   console.log('topic factory')
   var self = this;
-  console.log($routeParams, 'topicId');
   tF.checkSess(function(user) {
     self.user = user;
   })
-  tF.getTopic($routeParams.id, function(topic) {
+  function updateTopic(topic) {
     self.topic = topic;
-    console.log(topic);
-  })
+    self.post = {};
+  }
+  tF.getTopic($routeParams.id, updateTopic)
+
   this.createPost = function() {
-    tF.createPost(this.user._id, this.post, $routeParams.id);
+    tF.createPost(this.user._id, this.post, $routeParams.id, updateTopic);
   }
 }])

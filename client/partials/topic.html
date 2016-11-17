@@ -12,6 +12,9 @@
   <div class='post' ng-repeat='post in tC.topic.posts track by post._id'>
     <hr>
     <p><a href="#">{{post._user.name}}</a>: {{post.content}}</p>
+    <form class="" action="index.html" method="post">
+      <input type="text" name="name" value="">
+    </form>
   </div>
 </div>
 <hr>

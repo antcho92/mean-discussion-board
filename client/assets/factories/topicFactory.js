@@ -7,11 +7,12 @@ app.factory('topicFactory', ['$http', '$location', function($http, $location) {
         callback(res.data);
       })
     }
-    this.createPost = function(userId, post, topicId) {
+    this.createPost = function(userId, post, topicId, callback) {
       post._user = userId;
       post._topic = topicId;
       $http.post(`/posts/`, post).then(function(res) {
         console.log(res);
+        self.getTopic(topicId, callback);
       })
     };
     this.checkSess = function(callback) {
