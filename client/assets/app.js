@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
       controller: 'dashboardController',
       controllerAs: 'dC'
     })
-    .when('/topic/:id', {
+    .when('/topic/:topicId', {
       templateUrl: 'partials/topic.html',
       controller: 'topicController',
       controllerAs: 'tC'

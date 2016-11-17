@@ -12,8 +12,13 @@
   <div class='post' ng-repeat='post in tC.topic.posts track by post._id'>
     <hr>
     <p><a href="#">{{post._user.name}}</a>: {{post.content}}</p>
-    <form class="" action="index.html" method="post">
-      <input type="text" name="name" value="" placeholder="Comment">
+    <div class='comments'>
+      <div class='comment'>
+        
+      </div>
+    </div>
+    <form ng-submit='tC.createComment(comment, post._id)'>
+      <input type="text" name="name" value="" placeholder="Comment" ng-model='comment.content'>
       <input type="submit" name="name" value="Add Comment">
     </form>
   </div>

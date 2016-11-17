@@ -41,6 +41,14 @@ module.exports = (function() {
             model: 'User'
           }
         })
+        .populate({
+          path: 'posts.comments',
+          model: 'Comment',
+          populate: {
+            path: '_user',
+            model: 'User'
+          }
+        })
         .exec(function(err, topic) {
           if (err) {console.log(err)}
           res.json(topic);
