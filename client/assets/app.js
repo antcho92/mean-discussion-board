@@ -19,6 +19,8 @@ app.config(function($routeProvider) {
     })
     .when('/user/:userId', {
       templateUrl: 'partials/user.html',
+      controller: 'userController',
+      controllerAs: 'uC'
     })
     .otherwise('/');
 })

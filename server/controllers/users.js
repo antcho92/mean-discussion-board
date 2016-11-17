@@ -8,6 +8,16 @@ module.exports = (function() {
         res.json(users);
       })
     },
+    getUser: function(req, res) {
+      console.log(req.params.userId);
+      User.findOne({_id: req.params.userId}, function(err, user) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(user);
+        }
+      })
+    },
     login: function(req, res) {
       console.log(req.body);
       User.findOne({

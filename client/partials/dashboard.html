@@ -11,7 +11,7 @@
   <tr ng-repeat='topic in dC.topics track by topic._id'>
     <td>{{topic.category}}</td>
     <td><a ng-href="#/topic/{{topic._id}}">{{topic.title}}</a></td>
-    <td>{{topic._user.name}}</td>
+    <td><a href="#/user/{{topic._user._id}}">{{topic._user.name}}</a></td>
     <td>{{topic.posts.length}}</td>
   </tr>
 </table>
@@ -21,7 +21,7 @@
   <br>
   <textarea name="description" rows="8" cols="40" ng-model='dC.topic.description' placeholder="description"></textarea>
   <br>
-  Category: 
+  Category:
   <select name="" ng-model='dC.topic.category'>
     <option value="Ruby">Ruby</option>
     <option value="JavaScript">JavaScript</option>

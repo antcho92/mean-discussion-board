@@ -11,6 +11,7 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
       })
     };
     this.checkSess = function(callback) {
+      console.log($location.url());
       $http.get('/users/checkSess').then(function(res) {
         if (!res.data) {
           console.log('user is not logged in');
@@ -18,10 +19,20 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
         } else {
           console.log(res, 'id');
           callback(res.data);
-          $location.url('/dashboard');
+          if ($location.url().includes('user')) {
+            console.log($location.url());
+          } else {
+            $location.url('/dashboard');
+          }
         }
       });
     };
+    this.getUser = function(userId, callback) {
+      $http.get(`/user/${userId}`).then(function(res) {
+        console.log(res.data);
+        callback(res.data);
+      })
+    }
   }
   return new UsersFactory();
 }])

@@ -5,6 +5,7 @@ var comments = require('./../controllers/comments.js')
 
 module.exports = function(app) {
   app.get('/users', users.index);
+  app.get('/user/:userId', users.getUser)
   app.post('/users', users.login);
   app.get('/users/checkSess', users.checkSess);
   app.get('/users/logout', users.logout);
