@@ -13,8 +13,8 @@
     <hr>
     <p><a href="#">{{post._user.name}}</a>: {{post.content}}</p>
     <div class='comments'>
-      <div class='comment'>
-        
+      <div class='comment' ng-repeat='comment in post.comments'>
+        <p>{{comment.content}}</p>
       </div>
     </div>
     <form ng-submit='tC.createComment(comment, post._id)'>

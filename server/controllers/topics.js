@@ -41,18 +41,33 @@ module.exports = (function() {
             model: 'User'
           }
         })
-        .populate({
-          path: 'posts.comments',
-          model: 'Comment',
-          populate: {
-            path: '_user',
-            model: 'User'
-          }
-        })
         .exec(function(err, topic) {
-          if (err) {console.log(err)}
-          res.json(topic);
+          if (err) {throw err}
+          Topic
+          .populate(topic, {
+            path: 'posts.comments',
+            model: 'Comment',
+            populate: {
+              path: '_user',
+              model: 'User'
+            }
+          }, function(err, topic) {
+            if (err) {throw err}
+            res.json(topic);
+          })
         })
+        // .populate({
+        //   path: 'posts.comments',
+        //   model: 'Comment',
+        //   populate: {
+        //     path: '_user',
+        //     model: 'User'
+        //   }
+        // })
+        // .exec(function(err, topic) {
+        //   if (err) {console.log(err)}
+        //   res.json(topic);
+        // })
     }
   }
 })();
