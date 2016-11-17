@@ -15,6 +15,7 @@ app.factory('topicsFactory', ['$http', function($http) {
     };
     this.getTopic = function(topicId, callback) {
       $http.get(`/topic/${topicId}`).then(function(res) {
+        console.log(res.data);
         callback(res.data);
       })
     }

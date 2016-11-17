@@ -9,7 +9,10 @@
 </form>
 
 <div class='posts'>
-  <p ng-repeat='post in tC.topic.posts track by post._id'><a href="#">{{post._user.name}}</a>: {{post.content}}</p>
+  <div class='post' ng-repeat='post in tC.topic.posts track by post._id'>
+    <hr>
+    <p><a href="#">{{post._user.name}}</a>: {{post.content}}</p>
+  </div>
 </div>
-
+<hr>
 <a href="#/topics">Go Back</a>

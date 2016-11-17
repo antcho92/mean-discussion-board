@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
-var Topic = mongoose.model('Topic');
-var User = mongoose.model('User');
-var Post = mongoose.model('Post');
+var Topic = mongoose.model('Topic')
+    User = mongoose.model('User'),
+    Post = mongoose.model('Post'),
+    Comment = mongoose.model('Comment');
+
 
 module.exports = (function() {
   return {
@@ -28,7 +30,7 @@ module.exports = (function() {
                       if (err) {
                         res.json(err);
                       } else {
-                        res.json(topic);
+                        res.json(post);
                       }
                     })
                   }
