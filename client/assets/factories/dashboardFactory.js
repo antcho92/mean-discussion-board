@@ -1,5 +1,5 @@
-app.factory('topicsFactory', ['$http', function($http) {
-  function TopicsFactory() {
+app.factory('dashboardFactory', ['$http', function($http) {
+  function DashboardFactory() {
     var self = this;
     this.index = function(callback) {
       $http.get('/topics').then(function(res) {
@@ -20,5 +20,5 @@ app.factory('topicsFactory', ['$http', function($http) {
       })
     }
   }
-  return new TopicsFactory();
+  return new DashboardFactory();
 }])

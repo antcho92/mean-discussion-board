@@ -1,4 +1,4 @@
-<h2>Welcome {{tC.user.name}}</h2>
+<h2>Welcome {{dC.user.name}}</h2>
 <a href="/users/logout">Logout</a>
 
 <table>
@@ -8,7 +8,7 @@
     <th>User Name</th>
     <th>Posts</th>
   </tr>
-  <tr ng-repeat='topic in tC.topics track by topic._id'>
+  <tr ng-repeat='topic in dC.topics track by topic._id'>
     <td>{{topic.category}}</td>
     <td><a ng-href="#/topic/{{topic._id}}">{{topic.title}}</a></td>
     <td>{{topic._user.name}}</td>
@@ -16,12 +16,12 @@
   </tr>
 </table>
 <h3>Add a new topic</h3>
-<form ng-submit='tC.create()'>
-  <input type="text" name="title" placeholder="title" ng-model='tC.topic.title'>
+<form ng-submit='dC.create()'>
+  <input type="text" name="title" placeholder="title" ng-model='dC.topic.title'>
   <br>
-  <textarea name="description" rows="8" cols="40" ng-model='tC.topic.description' placeholder="description"></textarea>
+  <textarea name="description" rows="8" cols="40" ng-model='dC.topic.description' placeholder="description"></textarea>
   <br>
-  <select name="" ng-model='tC.topic.category'>
+  <select name="" ng-model='dC.topic.category'>
     <option value="Ruby">Ruby</option>
     <option value="JavaScript">JavaScript</option>
     <option value="Python">Python</option>

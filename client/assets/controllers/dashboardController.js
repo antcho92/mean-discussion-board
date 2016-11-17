@@ -1,4 +1,4 @@
-app.controller('topicsController', ['$scope', 'usersFactory', 'topicsFactory', function($scope, uF, tF) {
+app.controller('dashboardController', ['$scope', 'usersFactory', 'dashboardFactory', function($scope, uF, dF) {
   var self = this;
   uF.checkSess(function(user) {
     self.user = user;
@@ -7,9 +7,9 @@ app.controller('topicsController', ['$scope', 'usersFactory', 'topicsFactory', f
     self.topics = topics;
     self.topic = {};
   }
-  tF.index(getTopics);
+  dF.index(getTopics);
   this.create = function() {
     console.log(this.topic)
-    tF.create(this.topic, this.user._id, getTopics);
+    dF.create(this.topic, this.user._id, getTopics);
   }
 }])

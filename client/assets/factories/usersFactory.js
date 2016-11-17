@@ -18,7 +18,7 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
         } else {
           console.log(res, 'id');
           callback(res.data);
-          $location.url('/topics');
+          $location.url('/dashboard');
         }
       });
     };

@@ -7,10 +7,10 @@ app.config(function($routeProvider) {
       controller: 'usersController',
       controllerAs: 'uC'
     })
-    .when('/topics', {
-      templateUrl: 'partials/topics.html',
-      controller: 'topicsController',
-      controllerAs: 'tC'
+    .when('/dashboard', {
+      templateUrl: 'partials/dashboard.html',
+      controller: 'dashboardController',
+      controllerAs: 'dC'
     })
     .when('/topic/:id', {
       templateUrl: 'partials/topic.html',

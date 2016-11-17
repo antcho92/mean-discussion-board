@@ -1,11 +1,11 @@
-app.controller('topicController', ['$scope', '$routeParams', 'topicsFactory', 'postsFactory', function($scope, $routeParams, tF, pF) {
+app.controller('topicController', ['$scope', '$routeParams', 'dashboardFactory', 'postsFactory', function($scope, $routeParams, dF, pF) {
   console.log('topic factory')
   var self = this;
   console.log($routeParams, 'topicId');
   pF.checkSess(function(user) {
     self.user = user;
   })
-  tF.getTopic($routeParams.id, function(topic) {
+  dF.getTopic($routeParams.id, function(topic) {
     self.topic = topic;
     console.log(topic);
   })
