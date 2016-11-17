@@ -32,42 +32,36 @@ module.exports = (function() {
     },
     getTopic: function(req, res) {
       Topic.findOne({_id: req.params.topicId})
-        .populate('_user')
-        .populate({
-          path: 'posts',
-          model: 'Post',
+      //populates topic user
+      .populate('_user')
+      // populates comments and user of each comment
+      .populate({
+        path: 'posts',
+        model: 'Post',
+        populate: {
+          path: 'comments',
+          model: 'Comment',
           populate: {
             path: '_user',
             model: 'User'
           }
-        })
-        .exec(function(err, topic) {
-          if (err) {throw err}
-          Topic
-          .populate(topic, {
-            path: 'posts.comments',
-            model: 'Comment',
-            populate: {
-              path: '_user',
-              model: 'User'
-            }
-          }, function(err, topic) {
-            if (err) {throw err}
-            res.json(topic);
-          })
-        })
-        // .populate({
-        //   path: 'posts.comments',
-        //   model: 'Comment',
-        //   populate: {
-        //     path: '_user',
-        //     model: 'User'
-        //   }
-        // })
-        // .exec(function(err, topic) {
-        //   if (err) {console.log(err)}
-        //   res.json(topic);
-        // })
+        }
+      })
+      // populates post user
+      .populate({
+        path: 'posts',
+        populate: {
+          path: '_user',
+          model: 'User'
+        }
+      })
+      .exec(function(err, topic) {
+        if (err) {
+          res.json(err)
+        } else {
+          res.json(topic);
+        }
+      })
     }
   }
 })();
