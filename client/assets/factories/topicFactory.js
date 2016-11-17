@@ -1,12 +1,13 @@
-app.factory('postsFactory', ['$http', '$location', function($http, $location) {
-  function PostsFactory() {
+app.factory('topicFactory', ['$http', '$location', function($http, $location) {
+  function TopicFactory() {
     var self = this;
-    this.index = function(topicId, callback) {
-      $http.get(`/posts/${topicId}`).then(function(res) {
+    this.getTopic = function(topicId, callback) {
+      $http.get(`/topic/${topicId}`).then(function(res) {
+        console.log(res.data);
         callback(res.data);
-      });
-    };
-    this.create = function(userId, post, topicId) {
+      })
+    }
+    this.createPost = function(userId, post, topicId) {
       post._user = userId;
       post._topic = topicId;
       $http.post(`/posts/`, post).then(function(res) {
@@ -24,5 +25,5 @@ app.factory('postsFactory', ['$http', '$location', function($http, $location) {
       });
     };
   }
-  return new PostsFactory();
+  return new TopicFactory();
 }])

@@ -11,5 +11,5 @@ module.exports = function(app) {
   app.post('/topics/:id', topics.create);
   app.get('/topic/:id', topics.getTopic);
   app.post('/posts/', posts.create);
-  app.get('/posts/:id', posts.get)
+  app.get('/posts/:topicId', posts.get)
 }

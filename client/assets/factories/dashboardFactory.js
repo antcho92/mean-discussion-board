@@ -13,12 +13,6 @@ app.factory('dashboardFactory', ['$http', function($http) {
         self.index(callback);
       })
     };
-    this.getTopic = function(topicId, callback) {
-      $http.get(`/topic/${topicId}`).then(function(res) {
-        console.log(res.data);
-        callback(res.data);
-      })
-    }
   }
   return new DashboardFactory();
 }])

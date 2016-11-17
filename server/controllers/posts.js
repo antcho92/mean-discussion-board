@@ -42,7 +42,7 @@ module.exports = (function() {
       })
     },
     get: function(req, res) {
-      console.log(req.params.id);
+      console.log(req.params.topicId);
 
     }
   }
