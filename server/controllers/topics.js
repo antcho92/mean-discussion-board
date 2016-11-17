@@ -16,10 +16,9 @@ module.exports = (function() {
         });
     },
     create: function(req, res) {
-      User.findOne({_id: req.params.UserId}, function(err, user) {
+      User.findOne({_id: req.body._user}, function(err, user) {
         if (err) {console.log(err)}
         var topic = new Topic(req.body);
-        topic._user = user;
         topic.save(function(err) {
           if (err) {console.log(err)}
           user.topics.push(topic);

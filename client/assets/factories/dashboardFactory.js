@@ -7,8 +7,9 @@ app.factory('dashboardFactory', ['$http', function($http) {
         callback(res.data)
       });
     };
-    this.create = function(topic, userId, callback) {
-      $http.post(`/topics/${userId}`, topic).then(function(res) {
+    this.create = function(topic, callback) {
+      console.log(topic);
+      $http.post(`/topics/`, topic).then(function(res) {
         console.log(res.data);
         self.index(callback);
       })

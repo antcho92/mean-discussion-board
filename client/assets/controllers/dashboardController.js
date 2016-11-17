@@ -10,6 +10,7 @@ app.controller('dashboardController', ['$scope', 'usersFactory', 'dashboardFacto
   dF.index(getTopics);
   this.create = function() {
     console.log(this.topic)
-    dF.create(this.topic, this.user._id, getTopics);
+    this.topic._user = this.user._id
+    dF.create(this.topic, getTopics);
   }
 }])

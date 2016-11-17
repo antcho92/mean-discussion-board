@@ -9,7 +9,7 @@ module.exports = function(app) {
   app.get('/users/checkSess', users.checkSess);
   app.get('/users/logout', users.logout);
   app.get('/topics', topics.index);
-  app.post('/topics/:userId', topics.create);
+  app.post('/topics/', topics.create);
   app.get('/topic/:topicId', topics.getTopic);
   app.post('/posts', posts.create);
   app.get('/posts/:topicId', posts.get);
