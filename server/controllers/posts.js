@@ -43,7 +43,13 @@ module.exports = (function() {
     },
     get: function(req, res) {
       console.log(req.params.topicId);
-
+      Post.find({_topic: req.params.topicId}, function(err, posts) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(posts);
+        }
+      })
     }
   }
 })()

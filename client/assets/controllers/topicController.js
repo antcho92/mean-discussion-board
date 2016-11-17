@@ -13,4 +13,7 @@ app.controller('topicController', ['$scope', '$routeParams', 'topicFactory', fun
   this.createPost = function() {
     tF.createPost(this.user._id, this.post, $routeParams.id, updateTopic);
   }
+  this.createComment = function() {
+    
+  }
 }])

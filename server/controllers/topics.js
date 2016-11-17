@@ -16,7 +16,7 @@ module.exports = (function() {
         });
     },
     create: function(req, res) {
-      User.findOne({_id: req.params.id}, function(err, user) {
+      User.findOne({_id: req.params.UserId}, function(err, user) {
         if (err) {console.log(err)}
         var topic = new Topic(req.body);
         topic._user = user;
@@ -31,7 +31,7 @@ module.exports = (function() {
       });
     },
     getTopic: function(req, res) {
-      Topic.findOne({_id: req.params.id})
+      Topic.findOne({_id: req.params.topicId})
         .populate('_user')
         .populate({
           path: 'posts',
