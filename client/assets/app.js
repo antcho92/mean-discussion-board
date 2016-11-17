@@ -4,8 +4,8 @@ app.config(function($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'partials/login.html',
-      controller: 'usersController',
-      controllerAs: 'uC'
+      controller: 'loginController',
+      controllerAs: 'lC'
     })
     .when('/dashboard', {
       templateUrl: 'partials/dashboard.html',
@@ -16,6 +16,9 @@ app.config(function($routeProvider) {
       templateUrl: 'partials/topic.html',
       controller: 'topicController',
       controllerAs: 'tC'
+    })
+    .when('/user/:userId', {
+      templateUrl: 'partials/user.html',
     })
     .otherwise('/');
 })
