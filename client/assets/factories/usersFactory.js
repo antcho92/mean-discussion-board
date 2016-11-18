@@ -19,9 +19,7 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
         } else {
           console.log(res, 'id');
           callback(res.data);
-          if ($location.url().includes('user')) {
-            console.log($location.url());
-          } else {
+          if ($location.url() === '/') {
             $location.url('/dashboard');
           }
         }

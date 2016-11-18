@@ -50,7 +50,7 @@ module.exports = (function() {
       .populate({
         path: 'posts',
         populate: {
-          path: '_user',
+          path: '_user upvotes downvotes',
           model: 'User'
         }
       })
