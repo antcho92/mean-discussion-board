@@ -16,4 +16,5 @@ module.exports = function(app) {
   app.get('/posts/:topicId', posts.get);
   app.post('/comments', comments.create);
   app.get('/comments', comments.index);
+  app.post('/posts/vote', posts.upvote);
 }

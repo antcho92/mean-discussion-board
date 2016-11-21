@@ -1,9 +1,11 @@
 app.factory('topicFactory', ['$http', '$location', function($http, $location) {
   function TopicFactory() {
     var self = this;
+    this.topic =  {};
     this.getTopic = function(topicId, callback) {
       $http.get(`/topic/${topicId}`).then(function(res) {
         console.log(res.data);
+        self.topic = res.data;
         callback(res.data);
       })
     }
@@ -25,10 +27,16 @@ app.factory('topicFactory', ['$http', '$location', function($http, $location) {
         self.getTopic(topicId, callback);
       })
     };
-    this.createComment = function(comment, topicId, callback) {
+    this.createComment = function(comment, callback) {
       $http.post('/comments', comment).then(function(res) {
         console.log(res);
-        self.getTopic(topicId, callback);
+        self.getTopic(self.topic._id, callback);
+      })
+    };
+    this.vote = function(vote, callback) {
+      $http.post('/posts/vote', vote).then(function(res) {
+        console.log(res.data);
+        self.getTopic(self.topic._id), callback;
       })
     }
   }

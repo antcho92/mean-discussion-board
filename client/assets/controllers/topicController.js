@@ -16,12 +16,14 @@ app.controller('topicController', ['$scope', '$routeParams', 'topicFactory', fun
   this.createComment = function(comment, postId) {
     comment._post = postId;
     comment._user = this.user._id;
-    tF.createComment(comment, $routeParams.topicId, updateTopic);
+    tF.createComment(comment, updateTopic);
   };
-  this.upvote = function(postId) {
-
-  }
-  this.downvote = function(postId) {
-    
+  this.vote = function(postId, bool) {
+    var vote = {
+      postId: postId,
+      type: bool,
+      userId: this.user._id
+    }
+    tF.vote(vote, updateTopic);
   }
 }])

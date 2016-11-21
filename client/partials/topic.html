@@ -19,7 +19,7 @@
       <hr>
       <li>
         <a href="#/user/{{post._user._id}}">{{post._user.name}}</a>: {{post.content}}
-        <span>{{post.upvotes.length}} <button>&#9650;</button><button>&#9660;</button>{{post.downvotes.length}}</span>
+        <span>{{post.upvotes.length}} <button ng-click='tC.vote(post._id, true)'>&#9650;</button><button ng-click='tC.vote(post._id, false)'>&#9660;</button>{{post.downvotes.length}}</span>
       </li>
       <ul>
         <div class='comments'>

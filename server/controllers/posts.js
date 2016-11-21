@@ -50,6 +50,20 @@ module.exports = (function() {
           res.json(posts);
         }
       })
+    },
+    upvote: function(req, res) {
+      console.log(req.body);
+      User.find({_id: req.body.userId}, function(err, user) {
+        console.log(user, 'user');
+        Post.find({_id: req.body.postId}, function(err, post) {
+          console.log(post, 'post');
+          if (req.body.type) {
+            //upvote
+          } else {
+            //downvote
+          }
+        })
+      })
     }
   }
 })()
