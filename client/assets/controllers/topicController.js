@@ -17,5 +17,11 @@ app.controller('topicController', ['$scope', '$routeParams', 'topicFactory', fun
     comment._post = postId;
     comment._user = this.user._id;
     tF.createComment(comment, $routeParams.topicId, updateTopic);
+  };
+  this.upvote = function(postId) {
+
+  }
+  this.downvote = function(postId) {
+    
   }
 }])

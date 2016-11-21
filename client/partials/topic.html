@@ -17,7 +17,10 @@
   <ul>
     <div class='post' ng-repeat='post in tC.topic.posts'>
       <hr>
-      <li><a href="#/user/{{post._user._id}}">{{post._user.name}}</a>: {{post.content}}</li>
+      <li>
+        <a href="#/user/{{post._user._id}}">{{post._user.name}}</a>: {{post.content}}
+        <span>{{post.upvotes.length}} <button>&#9650;</button><button>&#9660;</button>{{post.downvotes.length}}</span>
+      </li>
       <ul>
         <div class='comments'>
           <div class='comment' ng-repeat='comment in post.comments'>
