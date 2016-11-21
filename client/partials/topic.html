@@ -3,7 +3,7 @@
   <li><a href="/users/logout">Logout</a></li>
 </ul>
 
-<h3>{{tC.topic._user.name}} posted a topic: </h3>
+<h3><a href="#/user/{{tC.topic._user._id}}">{{tC.topic._user.name}}</a> posted a topic: </h3>
 <h4>Title: {{tC.topic.title}}</h4>
 <p>Description: {{tC.topic.description}}</p>
 
@@ -17,11 +17,11 @@
   <ul>
     <div class='post' ng-repeat='post in tC.topic.posts'>
       <hr>
-      <li><a href="#">{{post._user.name}}</a>: {{post.content}}</li>
+      <li><a href="#/user/{{post._user._id}}">{{post._user.name}}</a>: {{post.content}}</li>
       <ul>
         <div class='comments'>
           <div class='comment' ng-repeat='comment in post.comments'>
-            <li><a href="#">{{comment._user.name}}</a>: {{comment.content}}</li>
+            <li><a href="#/user/{{comment._user._id}}">{{comment._user.name}}</a>: {{comment.content}}</li>
           </div>
         </div>
       </ul>
