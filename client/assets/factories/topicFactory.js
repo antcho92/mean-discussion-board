@@ -36,7 +36,7 @@ app.factory('topicFactory', ['$http', '$location', function($http, $location) {
     this.vote = function(vote, callback) {
       $http.post('/posts/vote', vote).then(function(res) {
         console.log(res.data);
-        self.getTopic(self.topic._id), callback;
+        self.getTopic(self.topic._id, callback);
       })
     }
   }

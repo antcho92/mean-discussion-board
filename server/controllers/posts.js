@@ -53,14 +53,27 @@ module.exports = (function() {
     },
     upvote: function(req, res) {
       console.log(req.body);
-      User.find({_id: req.body.userId}, function(err, user) {
+      User.findOne({_id: req.body.userId}, function(err, user) {
         console.log(user, 'user');
-        Post.find({_id: req.body.postId}, function(err, post) {
+        if (err) {console.log(err)}
+        Post.findOne({_id: req.body.postId}, function(err, post) {
+          if (err) {console.log(err)}
           console.log(post, 'post');
           if (req.body.type) {
             //upvote
+            post.upvotes.push(user);
+            post.save(function(err, post) {
+              if (err) {console.log(err)}
+              console.log(post);
+              res.json(post);
+            })
           } else {
             //downvote
+            post.downvotes.push(user);
+            post.save(function(err, post) {
+              if (err) {console.log(err)}
+              res.json(post);
+            })
           }
         })
       })

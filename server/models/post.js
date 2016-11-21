@@ -17,7 +17,7 @@ var postSchema = new mongoose.Schema({
   },
   upvotes: [{
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
   }],
   downvotes: [{
     type: Schema.Types.ObjectId,
